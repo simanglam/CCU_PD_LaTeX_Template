@@ -8,8 +8,8 @@ Simply download `quiz.cls` and place it in the same directory as your `.tex `fil
 
 ## Features
 
-* `\quiztitle` generates a title for the quiz section and handles subsequence numbers for multiple subquestions.
-* `\hwtitle` generates a title for homework.
+* `\quiztitle{num}` generates a title for the quiz section and handles subsequence numbers for multiple subquestions.
+* `\hwtitle{num}` generates a title for homework.
 * Use `\stepsemester` to increment the semester counter (default is 1).
 * Use `\setduedate{date}` to set the due date.
 * The document option solution allows you to generate a PDF that includes solution code.

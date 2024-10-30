@@ -2,7 +2,7 @@
 \ProvidesClass{quiz}[基於 LaTeX Class: article and Program Design 出題格式慣例]
 
 \DeclareOption{solution}{
-	\providecommand{\solution}[2][C]{\inputminted[linenos, bgcolor=Beige]{#1}{#2}}
+	\newcommand{\solution}[2][C]{\inputminted[linenos, bgcolor=Beige, breaklines, breakanywhere = true, fontsize = \scriptsize]{#1}{#2}}
 }
 
 \ProcessOptions\relax
@@ -11,7 +11,6 @@
 
 % Use Times New Rome as default font
 \usepackage{newtxtext}
-
 
 \usepackage{minted}
 \usepackage[svgnames]{xcolor}
@@ -37,28 +36,28 @@
 \stepsemeter
 
 % titles
-\newcommand{\hwtitle}{%
+\newcommand{\hwtitle}[1]{%
 \stepcounter{hw}
 \begin{center}
 \begin{LARGE}
 \textbf{Program Design (\Roman{semester})}\\\medskip\smallskip
 \end{LARGE}
 \begin{large}
-Homework\ \#1\ifnum0\totalHw > \c@one -\arabic{hw} \fi \\% if total HW greater than one, show 2-1 and 2-2 etc.
+Homework\ \# #1\ifnum0\totalHw > \c@one -\arabic{hw} \fi \\% if total HW greater than one, show 2-1 and 2-2 etc.
 Due: \duedate (CST)\\
 \end{large}\medskip
 \textbf{NOTE: Please upload your C program to DomJudge before the due date and time.}
 \end{center}
 }
 
-\newcommand{\quiztitle}{%
-\stepcounter{hw}
+\newcommand{\quiztitle}[1]{%
+\stepcounter{quiz}
 \begin{center}
 \begin{Large}
 \textbf{Quiz Section for Program Design (\Roman{semester})}\\\medskip\smallskip
 \end{Large}
 \begin{large}
-Execrise\ \#1\ifnum0\totalHw > \c@one -\arabic{hw} \fi
+Execrise\ \# #1\ifnum0\totalHw > \c@one -\arabic{quiz} \fi
 \end{large}
 \end{center}\medskip
 }
